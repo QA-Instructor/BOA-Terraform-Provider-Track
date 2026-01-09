@@ -1782,9 +1782,9 @@ resource "google_compute_target_http_proxy" "http_proxy" {
   url_map = google_compute_url_map.http_url_map.id
 }
 ```
-15. Copy the `google_compute_url_map` resource example into **loadbalancer.tf**
+17. Copy the `google_compute_url_map` resource example into **loadbalancer.tf**
 
-16. For convenience the code is shown here:
+For convenience the code is shown here:
 
 ```terraform
 resource "google_compute_url_map" "default" {
@@ -1808,15 +1808,15 @@ resource "google_compute_url_map" "default" {
   }
 }
 ```
-17. Delete all arguments *except* `nam`e and `default_service`.
+18. Delete all arguments *except* `name` and `default_service`.
 
-18. Change the resource block identifier from "default" to `"http_url_map"`
+19. Change the resource block identifier from "default" to `"http_url_map"`
 
-19. Change the default service from
+20. Change the default service from
 google_compute_backend_service.default.id to
 `google_compute_backend_service.backend_service.id` (You will create this next)
 
-20. Your modified code should be as follows:
+Your modified code should be as follows:
 
 ```terraform
 resource "google_compute_url_map" "http_url_map" {
@@ -1887,8 +1887,7 @@ output "lb-ip" {
 
 Task 4. Test the Load Balancer
 
-1.  Note the IP address of the load balancer. Open a local browser tab and navigate to this address. You will receive error messages for a while whilst the load balancer is deployed globally. Refresh periodically until you are shown the name of the backend vm you are being connected to. This may
-take 3-4 minutes. Refresh your browser to verify load balancing across the 2 backend instances.
+1.  Note the IP address of the load balancer. Open a local browser tab and navigate to this address. You will receive error messages for a while whilst the load balancer is deployed globally. Refresh periodically until you are shown the name of the backend vm you are being connected to. This may take 3-4 minutes. Refresh your browser to verify load balancing across the 2 backend instances.
 
 Task 5. Lab Clean Up
 
